@@ -111,7 +111,7 @@ fun ContentScreen(
             ) {
                 Text(
                     modifier = Modifier.padding(8.dp),
-                    text = "Elevated card",
+                    text = "Outlined card",
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
@@ -125,7 +125,7 @@ fun ContentScreen(
             ) {
                 Text(
                     modifier = Modifier.padding(8.dp),
-                    text = "Elevated card disabled",
+                    text = "Outlined card disabled",
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
