@@ -1,95 +1,135 @@
 package com.example.composethemestest.ui.theme
 
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 
-private fun getMissing(index: Int): Color {
-    val bins = 4
-    val binSize = 256 / bins
+data class ExtendedColors(
+    val material: ColorScheme,
+    val surfaceTint: Color,
+    val shadow: Color,
+    val warning: Color,
+    val onWarning: Color,
+    val warningContainer: Color,
+    val onWarningContainer: Color,
+    val success: Color,
+    val onSuccess: Color,
+    val successContainer: Color,
+    val onSuccessContainer: Color,
+    val ai: Color,
+    val onAi: Color,
+    val aiContainer: Color,
+    val onAiContainer: Color,
+)
 
-    val blue = index % bins
-    val green = (index / bins) % bins
-    val red = index / (bins * bins)
+val lightColors = ExtendedColors(
+    material = lightColorScheme(
+        primary = UnifiedColors.BaseIndigo_120,
+        onPrimary = UnifiedColors.BaseIndigo_250,
+        primaryContainer = UnifiedColors.BaseIndigo_220,
+        onPrimaryContainer = UnifiedColors.BaseIndigo_100,
+        secondary = UnifiedColors.BaseIndigo_140,
+        onSecondary = UnifiedColors.BaseIndigo_250,
+        secondaryContainer = UnifiedColors.BaseIndigo_230,
+        onSecondaryContainer = UnifiedColors.BaseIndigo_80,
+        tertiary = UnifiedColors.BaseIndigo_160,
+        onTertiary = UnifiedColors.BaseIndigo_250,
+        tertiaryContainer = UnifiedColors.BaseIndigo_240,
+        onTertiaryContainer = UnifiedColors.BaseIndigo_60,
+        error = UnifiedColors.BaseRed_140,
+        onError = UnifiedColors.BaseRed_250,
+        errorContainer = UnifiedColors.BaseRed_230,
+        onErrorContainer = UnifiedColors.BaseRed_110,
+        background = UnifiedColors.BaseGray_250,
+        onBackground = UnifiedColors.BaseGray_50,
+        surface = UnifiedColors.BaseGray_240,
+        onSurface = UnifiedColors.BaseGray_50,
+        surfaceVariant = UnifiedColors.BaseGray_235,
+        onSurfaceVariant = UnifiedColors.BaseGray_100,
+        outline = UnifiedColors.BaseGray_140,
+        outlineVariant = UnifiedColors.BaseGray_210,
+        scrim = UnifiedColors.BaseGray_0,
+        inverseSurface = UnifiedColors.BaseGray_50,
+        inverseOnSurface = UnifiedColors.BaseGray_245,
+        inversePrimary = UnifiedColors.BaseIndigo_210,
+        surfaceDim = UnifiedColors.BaseGray_220,
+        surfaceBright = UnifiedColors.BaseGray_250,
+        surfaceContainerLowest = UnifiedColors.BaseGray_250,
+        surfaceContainerLow = UnifiedColors.BaseGray_250,
+        surfaceContainer = UnifiedColors.BaseGray_245,
+        surfaceContainerHigh = UnifiedColors.BaseGray_250,
+        surfaceContainerHighest = UnifiedColors.BaseGray_250,
+    ),
+    surfaceTint = UnifiedColors.BaseIndigo_160,
+    shadow = UnifiedColors.BaseGray_0,
+    warning = UnifiedColors.BaseOrange_170,
+    onWarning = UnifiedColors.BaseGray_250,
+    warningContainer = UnifiedColors.BaseOrange_230,
+    onWarningContainer = UnifiedColors.BaseOrange_100,
+    success = UnifiedColors.BaseGreen_140,
+    onSuccess = UnifiedColors.BaseGray_250,
+    successContainer = UnifiedColors.BaseGreen_240,
+    onSuccessContainer = UnifiedColors.BaseGreen_100,
+    ai = UnifiedColors.BasePurple_140,
+    onAi = UnifiedColors.BaseGray_250,
+    aiContainer = UnifiedColors.BasePurple_230,
+    onAiContainer = UnifiedColors.BasePurple_100,
+)
 
-    return Color(
-        red = (red * binSize) % 256,
-        green = (green * binSize) % 256,
-        blue = (blue * binSize) % 256,
-    )
-}
-
-
-val primaryLight = Color(0xff3A1AFE)
-val onPrimaryLight = Color(0xFFFFFFFF)
-val secondaryContainerLight = Color(0xFFDCE3FC)
-val onSecondaryContainerLight = Color(0xFF1E0796)
-val primaryContainerLight = secondaryContainerLight
-val onPrimaryContainerLight = onSecondaryContainerLight
-val secondaryLight = getMissing(3)
-val onSecondaryLight = getMissing(4)
-val tertiaryLight = getMissing(5)
-val onTertiaryLight = getMissing(6)
-val tertiaryContainerLight = primaryContainerLight
-val onTertiaryContainerLight = onPrimaryContainerLight
-val errorLight = Color(0xFFD3202F)
-val onErrorLight = Color(0xFFFFFFFF)
-val errorContainerLight = Color(0xFFFEDBD9)
-val onErrorContainerLight = Color(0xFF941C1E)
-val backgroundLight = Color(0xFFF7F8FD)
-val onBackgroundLight = Color(0xFF222222)
-val surfaceLight = Color(0xFFF1F2F7)
-val onSurfaceLight = Color(0xFF161619)
-val surfaceVariantLight = surfaceLight
-val onSurfaceVariantLight = Color(0xFF48484C)
-val outlineLight = Color(0xFF747478)
-val outlineVariantLight = Color(0xFFC9CACF)
-val scrimLight = Color(0xFF000000)
-val inverseSurfaceLight = Color(0xFF161619)
-val inverseOnSurfaceLight = Color(0xFFF7F8FD)
-val inversePrimaryLight = Color(0xFF958BE0)
-val surfaceDimLight = Color(0xFFD6D7DC)
-val surfaceBrightLight = Color(0xFFFFFFFF)
-val surfaceContainerLowestLight = Color(0xFFFFFFFF)
-val surfaceContainerLowLight = Color(0xFFFFFFFF)
-val surfaceContainerLight = Color(0xFFF7F8FD)
-val surfaceContainerHighLight = Color(0xFFFFFFFF)
-val surfaceContainerHighestLight = Color(0xFFFFFFFF)
-
-
-val primaryDark = Color(0xFF869DFF)
-val onPrimaryDark = Color(0xFF100662)
-val primaryContainerDark = getMissing(14)
-val onPrimaryContainerDark = getMissing(15)
-val secondaryDark = getMissing(16)
-val onSecondaryDark = getMissing(17)
-val secondaryContainerDark = Color(0xFF333337)
-val onSecondaryContainerDark = Color(0xFF869DFF)
-val tertiaryDark = getMissing(18)
-val onTertiaryDark = getMissing(19)
-val tertiaryContainerDark = getMissing(20)
-val onTertiaryContainerDark = getMissing(21)
-val errorDark = Color(0xFFFFA597)
-val onErrorDark = Color(0xFF621512)
-val errorContainerDark = Color(0xFF2E0704)
-val onErrorContainerDark = Color(0xFFFFB8AD)
-val backgroundDark = getMissing(22)
-val onBackgroundDark = getMissing(23)
-val surfaceDark = Color(0xFF161619)
-val onSurfaceDark = Color(0xFFF1F2F7)
-val surfaceVariantDark = getMissing(24)
-val onSurfaceVariantDark = Color(0xFFC9CACF)
-val outlineDark = Color(0xFF808084)
-val outlineVariantDark = Color(0xFF48484C)
-val scrimDark = getMissing(25)
-val inverseSurfaceDark = Color(0xFFF7F8FD)
-val inverseOnSurfaceDark = Color(0xFF161619)
-val inversePrimaryDark = getMissing(26)
-val surfaceDimDark = Color(0xFF000000)
-val surfaceBrightDark = Color(0xFF333337)
-val surfaceContainerLowestDark = Color(0xFF000000)
-val surfaceContainerLowDark = Color(0xFF161619)
-val surfaceContainerDark = Color(0xFF1E1E21)
-val surfaceContainerHighDark = Color(0xFF242427)
-val surfaceContainerHighestDark = Color(0xFF29292C)
+val darkColors = ExtendedColors(
+    material = darkColorScheme(
+        primary = UnifiedColors.BaseIndigo_180,
+        onPrimary = UnifiedColors.BaseIndigo_60,
+        primaryContainer = UnifiedColors.BaseGray_90,
+        onPrimaryContainer = UnifiedColors.BaseIndigo_190,
+        secondary = UnifiedColors.BaseIndigo_170,
+        onSecondary = UnifiedColors.BaseIndigo_50,
+        secondaryContainer = UnifiedColors.BaseGray_80,
+        onSecondaryContainer = UnifiedColors.BaseIndigo_180,
+        tertiary = UnifiedColors.BaseIndigo_160,
+        onTertiary = UnifiedColors.BaseIndigo_40,
+        tertiaryContainer = UnifiedColors.BaseGray_70,
+        onTertiaryContainer = UnifiedColors.BaseIndigo_210,
+        error = UnifiedColors.BaseRed_200,
+        onError = UnifiedColors.BaseRed_80,
+        errorContainer = UnifiedColors.BaseRed_50,
+        onErrorContainer = UnifiedColors.BaseRed_210,
+        background = UnifiedColors.BaseGray_0,
+        onBackground = UnifiedColors.BaseGray_240,
+        surface = UnifiedColors.BaseGray_50,
+        onSurface = UnifiedColors.BaseGray_240,
+        surfaceVariant = UnifiedColors.BaseGray_70,
+        onSurfaceVariant = UnifiedColors.BaseGray_210,
+        outline = UnifiedColors.BaseGray_150,
+        outlineVariant = UnifiedColors.BaseGray_100,
+        scrim = UnifiedColors.BaseGray_0,
+        inverseSurface = UnifiedColors.BaseGray_245,
+        inverseOnSurface = UnifiedColors.BaseGray_50,
+        inversePrimary = UnifiedColors.BaseIndigo_120,
+        surfaceDim = UnifiedColors.BaseGray_0,
+        surfaceBright = UnifiedColors.BaseGray_80,
+        surfaceContainerLowest = UnifiedColors.BaseGray_0,
+        surfaceContainerLow = UnifiedColors.BaseGray_50,
+        surfaceContainer = UnifiedColors.BaseGray_60,
+        surfaceContainerHigh = UnifiedColors.BaseGray_65,
+        surfaceContainerHighest = UnifiedColors.BaseGray_70,
+    ),
+    surfaceTint = UnifiedColors.BaseIndigo_80,
+    shadow = UnifiedColors.BaseGray_0,
+    warning = UnifiedColors.BaseOrange_200,
+    onWarning = UnifiedColors.BaseOrange_80,
+    warningContainer = UnifiedColors.BaseOrange_80,
+    onWarningContainer = UnifiedColors.BaseOrange_230,
+    success = UnifiedColors.BaseGreen_200,
+    onSuccess = UnifiedColors.BaseGreen_80,
+    successContainer = UnifiedColors.BaseGreen_80,
+    onSuccessContainer = UnifiedColors.BaseGreen_230,
+    ai = UnifiedColors.BasePurple_200,
+    onAi = UnifiedColors.BasePurple_80,
+    aiContainer = UnifiedColors.BasePurple_80,
+    onAiContainer = UnifiedColors.BasePurple_230,
+)
 
 
 
