@@ -1,6 +1,5 @@
 package com.example.composethemestest.ui.screens
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -17,6 +16,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.rounded.AccountBox
@@ -48,7 +49,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Slider
-import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
@@ -76,7 +76,23 @@ fun MiscScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Miscellaneous") }
+                title = { Text(text = "TopAppBar") },
+                navigationIcon = {
+                    IconButton(onClick = { /* doSomething() */ }) {
+                        Icon(
+                            imageVector = Icons.Filled.Menu,
+                            contentDescription = "Localized description",
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { /* doSomething() */ }) {
+                        Icon(
+                            imageVector = Icons.Filled.Favorite,
+                            contentDescription = "Localized description",
+                        )
+                    }
+                },
             )
         }
     ) { innerPadding ->
@@ -231,7 +247,6 @@ fun MiscScreen(
                         },
                     )
                 }
-
 
                 Row(modifier = Modifier.fillMaxWidth()) {
                     var enabled by remember { mutableStateOf(true) }
